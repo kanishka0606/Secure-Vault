@@ -18,7 +18,7 @@ const StudentDashboard = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const res = await fetch('/api/students/profile', {
+      const res = await fetch('https://secure-vault-l70e.onrender.com/api/students/profile', {
         headers: { 'x-auth-token': token }
       });
       
@@ -46,7 +46,7 @@ const StudentDashboard = () => {
         });
 
         // Fetch documents
-        const dRes = await fetch(`/api/documents/${profile.student_id}`, {
+        const dRes = await fetch(`https://secure-vault-l70e.onrender.com/api/documents/${profile.student_id}`, {
           headers: { 'x-auth-token': token }
         });
         if (dRes.ok) {
@@ -73,7 +73,7 @@ const StudentDashboard = () => {
 
     try {
       setLoading(true);
-      const res = await fetch('/api/documents/upload', {
+      const res = await fetch('https://secure-vault-l70e.onrender.com/api/documents/upload', {
         method: 'POST',
         headers: { 'x-auth-token': token },
         body: formData
@@ -82,7 +82,7 @@ const StudentDashboard = () => {
       if (res.ok) {
         alert('Document uploaded successfully!');
         // Refresh documents
-        const dRes = await fetch(`/api/documents/${data.profile.studentId}`, {
+        const dRes = await fetch(`https://secure-vault-l70e.onrender.com/api/documents/${data.profile.studentId}`, {
           headers: { 'x-auth-token': token }
         });
         if (dRes.ok) setDocs(await dRes.json());
