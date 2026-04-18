@@ -27,7 +27,7 @@ const FacultyDashboard = () => {
   const fetchDocuments = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/documents/all', {
+      const res = await fetch('https://secure-vault-l70e.onrender.com/api/documents/all', {
         headers: { 'x-auth-token': token }
       });
       if (res.ok) {
@@ -51,7 +51,7 @@ const FacultyDashboard = () => {
       formData.append('file', uploadData.file);
 
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/documents/faculty-upload', {
+      const res = await fetch('https://secure-vault-l70e.onrender.com/api/documents/faculty-upload', {
         method: 'POST',
         headers: { 'x-auth-token': token },
         body: formData
@@ -71,7 +71,7 @@ const FacultyDashboard = () => {
     if (!window.confirm('Delete document?')) return;
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/documents/${id}`, {
+      const res = await fetch(`https://secure-vault-l70e.onrender.com/api/documents/${id}`, {
         method: 'DELETE',
         headers: { 'x-auth-token': token }
       });
@@ -87,7 +87,7 @@ const FacultyDashboard = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const res = await fetch('http://localhost:5000/api/faculty/students', {
+      const res = await fetch('https://secure-vault-l70e.onrender.com/api/faculty/students', {
         headers: { 'x-auth-token': token }
       });
       if (res.ok) {
@@ -140,13 +140,13 @@ const FacultyDashboard = () => {
     const token = localStorage.getItem('token');
     try {
       // Save Marks
-      await fetch(`http://localhost:5000/api/faculty/marks/${selectedStudent.studentId}`, {
+      await fetch(`https://secure-vault-l70e.onrender.com/api/faculty/marks/${selectedStudent.studentId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'x-auth-token': token },
         body: JSON.stringify({ subjects: editData.subjects, cgpa: 9.0 })
       });
       // Save Attendance
-      await fetch(`http://localhost:5000/api/faculty/attendance/${selectedStudent.studentId}`, {
+      await fetch(`https://secure-vault-l70e.onrender.com/api/faculty/attendance/${selectedStudent.studentId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'x-auth-token': token },
         body: JSON.stringify({ 
