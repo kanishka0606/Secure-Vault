@@ -47,13 +47,13 @@ router.get('/all', auth(['Faculty', 'Admin']), async (req, res) => {
 // @route POST api/documents/faculty-upload
 router.post('/faculty-upload', [auth(['Faculty', 'Admin']), upload.single('file')], async (req, res) => {
   try {
-    const { student_id, title } = req.body;
-    if (!student_id) return res.status(400).json({ msg: 'Student ID is required' });
+    const { studentId, title } = req.body;
+    if (!studentId) return res.status(400).json({ msg: 'Student ID is required' });
 
     const { data: newDoc, error } = await supabase
       .from('documents')
       .insert([{
-        student_id,
+        student_id: studentId,
         title: title || req.file.originalname,
         filename: req.file.filename,
         filetype: req.file.mimetype
