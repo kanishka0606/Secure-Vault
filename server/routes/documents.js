@@ -4,9 +4,17 @@ const auth = require('../middleware/auth');
 const multer = require('multer');
 const supabase = require('../config/supabase');
 
+const fs = require('fs');
+
 // Multer Config (Keep local storage for simplicity, but record in Supabase)
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, 'uploads/'),
+  destination: (req, file, cb) => {
+    const dir = 'uploads/';
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    cb(null, dir);
+  },
   filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
 });
 const upload = multer({ storage });
