@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "name": "System Administrator",
+      "email": "admin@vault.com",
+      "password": "admin123",
+      "role": "Admin",
+      "_id": "mxvl9peik"
+    },
+    {
+      "name": "System Admin",
+      "email": "admin@vault.com",
+      "password": "$2a$10$w6/wjCbUNdso3p8epPSib.4FoBCOghA/OhOxMWVCjIFC9ryOpAiq.",
+      "role": "Admin",
+      "_id": "nvl02mrjm"
+    },
+    {
+      "name": "Dr. Alan Turing",
+      "email": "faculty@vault.com",
+      "password": "$2a$10$w6/wjCbUNdso3p8epPSib..nqtN2VRe0ErhN3SeocUvYvmwGLlDgq",
+      "role": "Faculty",
+      "_id": "2ec91047n"
+    },
+    {
+      "name": "John Doe",
+      "email": "student@vault.com",
+      "password": "$2a$10$w6/wjCbUNdso3p8epPSib.TAiPM62kyfn8fkVrfDmZwSTI6p0YvBS",
+      "role": "Student",
+      "_id": "n8qmpjakg"
+    }
+  ],
+  "profiles": [
+    {
+      "userId": "n8qmpjakg",
+      "studentId": "ST12345",
+      "department": "Computer Science",
+      "year": "3",
+      "semester": "6",
+      "contact": "+1 234 567 890",
+      "_id": "f8j7dj0kb"
+    }
+  ]
+}
