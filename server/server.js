@@ -16,7 +16,7 @@ const supabase = require('./config/supabase');
 
 async function seedCloudDB() {
   console.log('--- Checking Cloud Database Connection ---');
-  
+
   // Check if Admin exists in Cloud
   const { data: existingAdmin, error } = await supabase
     .from('users')
@@ -29,7 +29,7 @@ async function seedCloudDB() {
 
   if (needsSeed) {
     console.log('--- Seeding Supabase with Demo Data ---');
-    
+
     const salt = await bcrypt.genSalt(10);
 
     // 1. Create Admin
@@ -85,8 +85,8 @@ app.use('/api/faculty', require('./routes/faculty'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/documents', require('./routes/documents'));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, '0.0.0.0', () => {
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => {
   console.log(`--- SUPABASE CLOUD MODE ---`);
   console.log(`Server running on port ${PORT}`);
 });
